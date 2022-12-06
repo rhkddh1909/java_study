@@ -1,4 +1,4 @@
-# java_study 이론 입니다.
+# java_study 입니다.
 
 ## 프로그램 개발 순서
 
