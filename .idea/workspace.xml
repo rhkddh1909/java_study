@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c2827d5-125f-4b5b-8808-23de12f84caa" name="Changes" comment="2022 12 03 java study&#10;compile 확인" />
+    <list default="true" id="7c2827d5-125f-4b5b-8808-23de12f84caa" name="Changes" comment="2022 12 07 java study&#10;compile 확인">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +56,7 @@
       <updated>1670051502220</updated>
       <workItem from="1670051503638" duration="3352000" />
       <workItem from="1670325483218" duration="2386000" />
-      <workItem from="1670409330138" duration="863000" />
+      <workItem from="1670409330138" duration="2338000" />
     </task>
     <task id="LOCAL-00001" summary="2022 12 03 java study">
       <created>1670051530607</created>
@@ -90,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670410194951</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="2022 12 07 java study&#10;compile 확인">
+      <created>1670410208706</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670410208706</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,6 +121,7 @@
     <MESSAGE value="2022 12 03 java study" />
     <MESSAGE value="2022 12 03 java study&#10;자바 실행 환경 정리" />
     <MESSAGE value="2022 12 03 java study&#10;compile 확인" />
-    <option name="LAST_COMMIT_MESSAGE" value="2022 12 03 java study&#10;compile 확인" />
+    <MESSAGE value="2022 12 07 java study&#10;compile 확인" />
+    <option name="LAST_COMMIT_MESSAGE" value="2022 12 07 java study&#10;compile 확인" />
   </component>
 </project>
