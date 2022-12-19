@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c2827d5-125f-4b5b-8808-23de12f84caa" name="Changes" comment="2022 12 16 java study&#10;상속, 인터페이스" />
+    <list default="true" id="7c2827d5-125f-4b5b-8808-23de12f84caa" name="Changes" comment="2022 12 16 java study&#10;상속, 인터페이스">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,6 +46,7 @@
       <option name="presentableId" value="Default" />
       <updated>1670051502220</updated>
       <workItem from="1670051503638" duration="3206000" />
+      <workItem from="1671424642458" duration="1904000" />
     </task>
     <task id="LOCAL-00001" summary="2022 12 03 java study">
       <created>1670051530607</created>
@@ -65,7 +69,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671175888838</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="2022 12 16 java study&#10;상속, 인터페이스">
+      <created>1671176108276</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671176108276</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

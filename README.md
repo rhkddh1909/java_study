@@ -454,7 +454,7 @@ static{
 - 자바8부터 활용가능
 - 상속받는 모든 클래스에서 공통적으로 가지는 메서드
 
-```jsx
+```java
 public default 리턴타입 메서드명(인자값){
 	...
 }
@@ -464,3 +464,167 @@ public default 리턴타입 메서드명(인자값){
 
 - 자바8에서 사용가능
 - 프로그램 실행전에 메서드를 먼저 구현하여 사용가능
+
+## 다형성
+
+- 내부적으로 모든 클래스의 root는 object이다(extends가 없을 경우 extends Object가 내부적으로 실행)
+- heap에 인스턴스를 생성하는 순서는 상위클래스의 object부터 생성한 인스턴스까지 순서대로 만들어진다
+- 하위 클래스를 활용하기 위해서는 형변환 해주어야한다.
+
+## instanceof
+
+- 받아온 인스턴스의 타입을 확인하는 문법
+
+## 내부 클래스
+
+- 클래스$클래스로 표현된다
+- instant class
+- static class
+
+→ new 없이 사용가능 함 하지만 클래스 내부적으로 static이 없는 변수나 메서드를 사용하려면 인스턴스를 생성 해주어야 한다.
+
+- local class
+
+```java
+public void method1(){
+	class LocalClass{
+		... 
+	}
+}
+```
+
+→ 해당 메서드에서만 사용가능하다
+
+- 익명 class
+
+```java
+Messenger test = new Messenger(){
+	public void setMessage(){
+		...
+	}
+
+	public String getMessage(){
+		...
+	}
+}
+```
+
+## 자바 API(라이브러리)
+
+- [java.io](http://java.io) 입출력
+- java.util 유틸(날짜, 시간, 컬렉션)
+- java.sql 데이터베이스
+- java.lang 프로그램 개발 시 가장 기본 기능
+
+## java.lang
+
+- Object
+  - hashCode() → 인스턴스의 고유번호를 확인
+  - getClass() →Class 객체를 리턴(class객체는 객체에 대한 정보를 담고 있음)
+  - toString() → 고유번호를 16진수로 변환
+  - equals() → 객체의 주소값을 비교
+- String
+
+  → 문자열 처리에 관련된 클래스
+
+  → 원본은 변경 불가
+
+  - equals() → 문자열 비교
+  - equalsIgnoreCase() → 대소문자 관련없이 문자열 비교
+  - toString() → 문자열 리턴
+  - length() → 길이 출력
+  - charAt() → 특정 위치의 문자 리턴
+  - trim() → 공백 제거
+  - isEmpty() → “”(null string) 판단
+  - indexOf() → 인자로 주어진 문자열이 몇번째 인덱스에 위치하는지
+  - lastIndexOf() → 인자로 주어진 문자열이 뒤에서 몇번째 인덱스에 위치하는지
+  - startWith() → 인자로 주어진 문자열으로 시작하는지
+  - endWith() → 인자로 주어진 문자열로 끝나는지
+  - concat() → 문자열 합치기
+  - replace() → 문자열 치환
+  - toLowerCase() → 소문자 변환
+  - toUpperCase() → 대문자 변환
+  - split() → 특정 인자를 기준으로 문자열 자르기
+  - substring() → 인덱스 값을 통해 문자열 자르기
+  - valueOf() → 타입을 문자열로 변환하려고 할 때
+- StringBuffer(동시접근기능처리) / StringBuilder(동시접근기능처리x)
+
+  → 문자열 처리에 관한 기능을 제공
+
+  → 원본 변경 가능
+
+  - append() →  문자열 붙히기
+  - capacity() → 전체 용량
+  - delete(int, int) → 범위 삭제
+  - deleteCharAt(int) → 지정 삭제
+  - insert() → 삽입
+  - reverse() → 뒤집기
+  - setCharAt(int, char) → 지정 문자 삽입
+  - setLength(int) → 길이 변경
+  - trimToSize() → 들어있는 문자열로 크기 변경
+- Math
+
+  → 수학적인 계산
+
+  - Math.abs() → 절대값
+  - Math.ceil() → 정수값(올림)
+  - Math.floor() → 정수값(버림)
+  - Math.max() → 최대값
+  - Math.min() → 최소값
+  - Math.pow() → 거듭제곱
+  - Math.random() → 랜덤값
+  - Math.round() → 정수값(반올림)
+  - Math.sqrt() →  제곱근
+- Wrapper Class
+  - Boolean
+  - Charactor
+  - Byte
+  - Interger
+  - Long
+  - Double
+  - Short
+  - Float
+
+  → Wrapper class로 변환 : Boxing
+
+  → 자바5부터 autoboxing 가능
+
+
+## java.util
+
+- StringTokenizer
+
+  → 문자열 분리하는 클래스
+
+- Random(long seed) : seed값 지정 가능
+
+  → 난수발생 클래스
+
+- Arrays
+
+  → 배열관련 기능 제공
+
+  - binarySearch() → 이진 탐색
+  - copyOf() → 복사
+  - copyOfRange() → 범위 복사
+  - equals([], []) → 인자로 주어진 두 배열을 비교
+  - sort() → 배열 정렬
+  - toString() → 문자열로 변환
+- Date/Calender
+
+  → 날짜 관련 기능 제공
+
+  - month는 0부터 시작이라 +1로 사용
+- SimpleDateFormat
+
+  → 날짜의 형식을 정의하는 기능 제공
+
+- MassageFormat
+
+  → 문자열 형식을 정의하는 기능 제공
+
+- DecimalFormat
+  - 0 : 하나의 숫자를 의미함. 지정된 자리에 숫자가 없으면 0
+  - # : 하나의 숫자를 의미함. 지정된 자리에 숫자가 없으면 표현하지 않음
+  - . : 소수점
+  - - : 음수
