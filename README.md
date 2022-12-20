@@ -751,3 +751,31 @@ Messenger test = new Messenger(){
   - isEmpty() → 비어있는지 확인
   - pollFirstEntry() → 첫번째값을 빼서 반환
   - size() → 크기 반환
+
+## 예외처리
+
+- Throwable(최상위)
+  - Error →  물리적오류
+  - Exception → 소프트웨어적 오류
+    - RuntimeException → 실행 시 발생하는 프로그램적 오류
+      - NullPointerException(가장 많이 발생)
+    - I/OExceptiom → 입출력 시 발생하는 프로그램적 오류
+- 예외발생 → new ~Excepion() 생성됨
+- try{ … } catch{ … } finally{ … }으로 처리
+- printStackTrace() → 오류 발생까지의 순서를 역으로 추적해서 출력
+- try-with-resource → java7부터 추가되었음, close를 자동으로 수행해주는 예외처리
+  - try( …file io… ){ }catch{ } → AutoCloseable을 상속한 객체만 활용 가능
+- 상위 호출부로 Exception을 넘길때는 method() throws …, …, …
+- 사용자예외객체를 만들때
+  1. Exception을 상속받아야함
+  2. ~Exception으로 객체이름을 지정해야함
+
+    ```jsx
+    public class CustomException extends Exception{
+    	public CustomExceptiom(){	
+    		super("message");
+    	}
+    }
+    ```
+
+- throw new ~Exception(”message”); Exception을 강제로 발생
