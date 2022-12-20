@@ -628,3 +628,126 @@ Messenger test = new Messenger(){
   - #: 하나의 숫자를 의미함. 지정된 자리에 숫자가 없으면 표현하지 않음
   - .: 소수점
   - -: 음수
+
+## Collection
+
+→ 배열의 삽입,삭제,수정 등의 문제점을 보안하기위해
+
+- List → new ArrayList()는  new Object[10]의 기능을 대체한다 자바8에서는 클래스타입 생략가능
+  - indexOf(elem) → 인자값이 몇번째 있는지 반환
+  - lastIndexOf(elem) → 인자값이 뒤에서 몇번째 있는지 반환
+  - remove(elem) → 인자값에 해당하는 요소를 삭제
+  - remove(int) → 인자로 받은 위치에 있는 요소를 삭제
+  - clear() → 모든 요소를 삭제
+  - isEmpty() → 리스트가 비었는지 확인
+  - add(elem) → 인자로 받은 요소를 리스트에 삽입
+  - Arrays.asList(elems) → 인자로 받은 요소들을 리스트로 변경
+  - list.retainAll(list2) → list에 list2의 요소들을 삽입
+  - list.removeAll(list2) → list에 있는 list2의 요소들을 삭제
+  - Iterator : 리스트의 요소에 엑세스할때 Iterator를 사용하면 속도가 더 빠름
+
+    →list.interator()로 객체를 가져올 수 있다
+
+- Vector → 동기화 처리가 되어있는 ArrayList
+  - new Vector(원하는크기, 늘어날 수 있는 길이수)
+  - addElement(elem) → 인자로 받은 값을 벡터에 넣는다
+  - size() → 벡터의 길이 반환
+  - elementAt(int) → 인자로 받은 순번의 요소를 반환
+  - firstElement() → 첫번째 인자를 반환
+  - lastElement() → 마지막 인자를 반환
+  - insertElementAt(elem, idx) → 해당하는 위치에 요소를 추가
+  - setElementAt(elem,idx) → 해당하는 위치에 요소를 변경
+  - capacity() → 벡터의 전체용량확인
+  - trimToSize() → 벡터에 들어있는 요소의 갯수로 벡터의 용량을 변경
+  - removeElement(elem) → 인자로 받은 데이터를 삭제
+  - removeElementAt(idx) → 인자로 받은 인덱스의 데이터를 삭제
+  - removeAllElement() → 벡터의 모든 요소를 삭제
+  - addAll(list) → list의 모든 요소를 삽입
+  - setSize() → 벡터의 사이즈를 수정
+  - Enumeration : Iterator와 비슷하지만 동기화 처리가 되어있음
+
+    → vector.elements()로 객체를 가져올 수 있다
+
+- LinkedList → 순차적으로 저장되는 것이아니라 메모리적으로 용이 헤더, 테일, 넥스트의 데이터를 가진다
+  - add(elem) → 인자로 받은 요소 추가
+  - size() → list의 크기 반환
+  - get(idx) → 인자로 받은 인덱스의 데이터 반환
+  - addFirst(elem) → 첫번째에 인자로 받은 요소 추가
+  - addLast(elem) → 마지막에 인자로 받은 요소 추가
+  - offer(elem) →  add와 같은 기능을 하지만 데이터 삽입의 실패시 오류 대신 boolean값을 반환
+  - offerFirst(elem) → 위와 동일
+  - offerLast(elem) → 위와 동일
+  - peek(elem) → 데이터를 반환(list 데이터 변경 없음)
+  - peekFirst() → 첫번째 데이터를 반환 (list 데이터 변경 없음)
+  - peekLast() → 마지막 데이터를 반환 (list 데이터 변경 없음)
+  - poll(elem) → 데이터를 반환(list 데이터 변경 있음)
+  - pollFirst() → 첫번째 데이터를 반환(list 데이터 변경 있음)
+  - pollLast() → 마지막 데이터를 반환(list 데이터 변경 있음)
+  - push(elem) → 첫번째 데이터에 값 추가
+  - pop() → 첫번째 데이터에 값 추출
+  - get(idx) → 인자로 받은 인덱스의 데이터 반환
+  - getFirst() → 첫번째 데이터 반환
+  - getLast() → 마지막 데이터 반환
+  - indexOf(elem) → 인자로 받은 데이터의 위치 반환
+  - lastIndexOf(elem) → 인자로 받은 데이터의 위치를 뒤에서 부터 반환
+  - removeFirst() → 첫번째 요소 삭제
+  - removeLast() → 마지막 요소 삭제
+  - remvoe(idx) → 인자로 받은 인덱스의 요소 삭제
+  - remove(elem) → 인자로 받은 요소를 삭제
+  - removeAll() → 모든 요소를 삭제
+  - toArray() → 배열을 반환
+- HashSet
+
+  → 저장하는 데이터의 순서를 모름
+
+  → 중복된 데이터를 저장 불가
+
+- TreeSet
+  - add(elem) → 데이터 삽입
+  - first() → 첫번째 데이터
+  - list() → 마지막 데이터
+  - lower(elem) → elem 바로 전 데이터
+  - higher(elem) → elem 바로 다음 데이터
+  - floor(elem) → elem이 있으면 elem 없으면 바로 전 데이터
+  - ceiling(elem) → elem이 있으면 elem 없으면 바로 다음 데이터
+  - isEmpty() →  비었는지 확인
+  - size() → 크기 반환
+  - pollLast() → 마지막 요소를 꺼내서 반환
+- HashMap
+  - Entry → key와 value의 값을 가지고 있는 객체
+  - put(key,value) → 데이터 삽입
+  - get(key) → key에 해당하는 value를 반환
+  - replace(key, value) → value의 값을 바꾼다
+  - containsKey(key) → key가 존재하는지 확인
+  - containsValue(value) → value가 존재하는지 확인
+  - remove(key) → entry 삭제
+  - clear() → map의 모든 요소 삭제
+  - isEmpty() → map이 비었는지 확인
+  - size() → map의 크기 반환
+- HashTable
+
+  → null 키와 null value를 저장하지 못함
+
+  → 동기화 처리됨
+
+  - put(key, value) → 데이터 삽입
+  - keySet() → HashTable에 있는 모든 Key정보를 가져온다
+  - values() → HashTable에 있는 모든 Value정보를 가져온다
+  - get(key) → key에 해당하는 value 반환
+  - containsKey(key) → key가 존재하는지 확인
+  - containsValue(value) → value가 존재하는지 확인
+  - remove(key) → entry 삭제
+  - clear() → map의 모든 요소 삭제
+  - isEmpty() → map이 비었는지 확인
+  - size() → map의 크기 반환
+- TreeMap
+  - put(key, value) → 데이터 삽입
+  - firstEntry() → 첫번째 엔트리를 반환
+  - lastEntry() → 마지막 엔트리를 반환
+  - lowerEntry(key) → key값 바로 전의 데이터
+  - higerEntry(key) → key값 바로 다음 데이터
+  - floorEntry(key) → key값이 있으면 key값의 데이터 없으면 바로 전의 데이터
+  - ceilingEntry(key) → key값이 있으면 key값의 데이터 없으면 바로 다음 데이터
+  - isEmpty() → 비어있는지 확인
+  - pollFirstEntry() → 첫번째값을 빼서 반환
+  - size() → 크기 반환
