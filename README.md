@@ -770,7 +770,7 @@ Messenger test = new Messenger(){
   1. Exception을 상속받아야함
   2. ~Exception으로 객체이름을 지정해야함
 
-    ```jsx
+    ```jsx 
     public class CustomException extends Exception{
     	public CustomExceptiom(){	
     		super("message");
