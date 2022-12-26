@@ -779,3 +779,12 @@ Messenger test = new Messenger(){
     ```
 
 - throw new ~Exception(”message”); Exception을 강제로 발생
+
+## 입출력 → 외부데이터를 활용
+
+- property file → txt 파일 new Properties()를 통해 활용 가능
+- FileChannel → 버퍼를 통행 속도 향상 file.getChannel()
+- ZipOutputStream → 압축파일 생성 (new ZipEntry(파일명))
+- Serializable : 직렬화 개체의 정보를 하나씩 꺼내서 저장하는  것
+
+  → uid 값이 달라지기때문에 직접적으로 선언해주는 것이 좋음
