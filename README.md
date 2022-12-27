@@ -983,4 +983,26 @@ Messenger test = new Messenger(){
     2. RUNTIME : 바이트코드까지 유지, 정보 추출 가능
     - 정보추출메서드라는 것이 있다
 
-## 자바의 특징(장점)
+## 람다식
+
+- 기본 문법
+
+```jsx
+(인수 리스트) -> 명령문
+(인수 리스트) -> {
+	...
+	return 값;
+}
+```
+
+→ 람다식으로 표현하는 인터페이스는 메서드를 하나만 가짐(@FunctionalInterface)
+
+- 자바8에서 변수에 값이 들어가고 수정이 되지 않으면 final로 인식
+- 인터페이스 활용법
+  - 클래스 상속
+  - 익명 클래스
+- 함수형 인터페이스
+  1. Function<T,R> : R apply(T) → T타입 인수를 받고 R타입 결과를 반환
+  2. Predicate : boolean test(T) → T타입 인수를 받고 boolean값을 반환
+  3. Supplier : T get() → 인수를 받지않고 T값을 반환
+  4. Consumer : void accept(T) → T타입 인수를 받고 반환하지 않음
