@@ -788,3 +788,199 @@ Messenger test = new Messenger(){
 - Serializable : 직렬화 개체의 정보를 하나씩 꺼내서 저장하는  것
 
   → uid 값이 달라지기때문에 직접적으로 선언해주는 것이 좋음
+
+## 스레드
+
+- Thread
+  - run() 메소드에 스레드의 동작을 구현
+  - start()를 통해 스레드 실행
+- Runable
+  - run() 메소드를 오버라이딩하여 동작 구현
+  - new Thread(class)를 통해 Thread 객체를 생성하여 사용
+  - start()를 통해 스레드 실행
+- 이름 지정
+
+    ```jsx
+    class Work1 extends Thread{
+    	Work1(){
+    		setName("이름");
+    	}
+    }
+    ```
+
+- 우선 순위 지정
+  - setPriority(우선순위)
+  - Thread.MAX_PRIORITY
+  - Thread.MIN _PRIORITY
+- 동기화
+  - 객체 동기화
+
+    ```jsx
+    public void run(){
+    	sychronized(객체){
+    		for(int i = 0; i < 1000; i++){
+    			...
+    		}
+    	}
+    }
+    ```
+
+  → ‘객체’ 에 접근할 때 하나의 쓰레드만 접근 가능
+
+  - 메서드 동기화
+
+    ```jsx
+    public sychronized void draw(인자값){
+    	...
+    }
+    ```
+
+- 스레드 제어
+  - wait() : 스레드 대기
+  - notify() : 대기 상태의 스레드 재시작
+  - notifyAll() : 모든 대기 상태의 스레드 재시작
+  - start() : 스레드 초기 실행
+  - join() : 생긴 스레드가 종료되면 다음 플로우 진행
+  - sleep() : 지정 시간동안 스레드를 멈춤
+    - sleep시간 지정방법
+    1. 밀리세컨드단위 정수형으로 표현
+    2. TimeUnit 활용
+  - interrupt() : wait, sleep, join으로 대기한 스레드를 취소
+
+    → interrupt는 Exception을 발생시키므로 try catch 필요
+
+- Thread Pool
+  - Thread를 미리 생성해둔다
+
+    ```jsx
+    ExecutorService threadPool = Executors.newFixedThreadPool(갯수);
+    ```
+
+  → 실행시 pool에서 스레들를 대여하고 종료되면 다시 반환
+
+  - threadPool사용 완료시 shutdown() 메서드를 통해 threadpool 삭제
+- Semaphore
+  - 실행할 수 있는 스레드의 개수를 제어
+
+    ```jsx
+    Semaphore semaphore = new Semaphore(3);//크기가 3개까지인 Thread
+    ```
+
+## 제네릭과 어노테이션
+
+- 제네릭
+  - 타입은 실해면서 결정
+
+    ```jsx
+    Bag<Book> bag = new Bag<>(new Book()); //<>안에 타입지정을 안해도 되는 건 8버전부터 가능
+    ```
+
+  - 조건 지정
+
+    ```jsx
+    class Solid{ ... }
+    class Liquid{ ... }
+    
+    class Book extends Solid{ ... }
+    class PencilCase extends Solid{ ... }
+    class NoteBook extends Solid{ ... }
+    
+    class Water extends Liquid{ ... }
+    class Coffee extends Liquid{ ... }
+    
+    public class Bag<T extends Solid> 
+    ```
+
+  → Bag 객체에는  Solid만 들어갈 수 있다는 조건
+
+  - <?>: 와일드 카드 → 어떤 타입이 와도 상관 없음
+  - 와일드 카드도 조건 지정이 가능하다
+  - 멀티타입 파라미터 → <T,E,N> 등등
+  - 제네릭 메서드 사용법
+
+    ```jsx
+    public <Type> returnType Name(Arguments,...){
+    	...
+    }
+    ```
+
+  → 메서드를 호출할 때 구체적으로 타입을 지정하려고 할때 [객체.<타입>메서드명(인자값)] 으로 사용
+
+  - 가변길이 인수
+
+    ```jsx
+    public void method(int ...arg){ ... }
+    public void method(int i, String ... arg){ ... }
+    public void method()
+    
+    method(1,2,3,4,5,6,7) // 가능
+    ```
+
+  - 제네릭 상속
+
+    → 타입파라미터를 가진 클래스를 상속할때 자식 클래스도 같은 타입파라미터를 입력받아야 함
+
+- 열거형(enum)
+
+    ```jsx
+    public enum Name{
+    	READY,
+    	SEND,
+    	COMPLETE,
+    	CLOSE
+    }
+    ```
+
+  - name() : enum값의 문자열을 반환
+  - toString() : name()과 같음
+  - ordinal() : enum 값의 위치 값 를 반환
+  - compareTo() : enum값의 상대적 위치를 반환
+  - valueOf() : 인자로 지정된 enum값을 리턴
+  - values() : enum의 모든 값을 리턴
+- 어노테이션
+  - 컴파일러에게 코드 문법 에러를 체크하도록 정보를 제공
+  - 빌드 또는 배치 시 정보를 제공
+  - 실행 시 특저 기능을 실행하도록 정보를 제공
+  - 표준 어노테이션
+    - @Override : 부모의 메서드를 재구현
+    - @Deprecate : 차후 버전에서 삭제 될 수 있는 메서드
+    - @SuppressWarnings : 워닝 차단
+    - @FunctionalInterface : 해당 인터페이스는 메서드 하나만 가짐
+    - @SafeVarags : 인자값 타입 워닝 차단
+  - 사용자 정의 어노테이션
+
+    ```jsx
+    public @interface AnnotationName{
+    	...
+    }
+    //@AnnotationName 으로 사용가능
+    
+    //TYPE은 클래스, METHOD는 메서드
+    @Target({ElementType.TYPE, ElementType.METHOD})
+    public @interface Temp{
+    	String value();//변수 선언
+    	int num() default 1; //기본값 설정
+    }
+    @Temp("test") //value 속성으로 값이 들어감
+    @Temp(value="test", num=3)
+    ```
+
+  - @Target으로 지정할 수 있는 범위
+  1. ANNOTATION TYPE
+  2. CONSTRUCTOR
+  3. FIELD
+  4. LOCAL_VARIABLE
+  5. METHOD
+  6. PACKAGE
+  7. PARAMETER
+  8. TYPE
+  9. TYPE_PARAMETER
+  10. TYPE_USE
+  - @Retention
+    - 어노테이션 정보를 어디까지 유지 할 지를 지정
+    - RetentionPolicy
+    1. CLASS : 바이트코드까지 유지, 정보 추출 안 됨
+    2. RUNTIME : 바이트코드까지 유지, 정보 추출 가능
+    - 정보추출메서드라는 것이 있다
+
+## 자바의 특징(장점)
